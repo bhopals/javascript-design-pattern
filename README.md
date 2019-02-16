@@ -10,8 +10,11 @@ A general, reusable solution to a commonly occuring problem within a given conte
 
 
 **Design Pattern Types**
+
     -   Creational  --> Create new things
+
     -   Structural  --> Structure your code
+
     -   Behavioural --> Use for behaviours in code
 
 
@@ -176,7 +179,49 @@ console.log("civic:",civic);
 console.log("cx5:",cx5);
 ```
 
-**3. Factory Design Pattern**
+**4. Factory Design Pattern**
+Factory Pattern is another class-based creational pattern. In this, we provide a generic interface that delegates the responsibility of object instantiation to its subclasses.
+
+
+```
+class Car {
+ constructor(doors, engine, color){
+        this.color = color;
+        this.doors = doors;
+        this.engine = engine;
+    }
+}
+
+class carFactory {
+    createCar(type){
+        switch(type){
+            case 'civic':
+                return new Car(4, "Civic", "Grey");
+            case 'honda':
+                return new Car(5, "Honda", "Black");
+            default :
+                return new Car(6, "Audi", "White");
+        }
+    }
+}
+
+const factoryObject = new carFactory();
+let honda = factoryObject.createCar('honda');
+let civic = factoryObject.createCar('civic');
+let other = factoryObject.createCar('other');
+
+console.log(honda); //Car {color: "Black", doors: 5, engine: "Honda"}
+console.log(civic); //Car {color: "Grey", doors: 4, engine: "Civic"}
+console.log(other); // Car {color: "White", doors: 6, engine: "Audi"}
+
+```
+
+
+**5. Abstract Factory Design Pattern**
+
+
+
+
 
 ### 2. Structural Design Patterns ###
 
@@ -187,8 +232,61 @@ We will discuss the following patterns in details — **Adapter Pattern, Com
 
 
 
+**1. Adapter Design Pattern**
+
+
+**2. Composite Design Pattern**
+
+
+**3. Decorator Design Pattern**
+
+
+**4. Facade Design Pattern**
+
+
+**5. Flyweight Design Pattern**
+
+
+**6. Proxy Design Pattern**
+
+
+
+
+
 ### 3. Behavioral Design Patterns ###
 
 These patterns are concerned with improving communication between dissimilar objects.
 
 We will discuss the following patterns in details — **Chain of Responsibility Pattern, Command Pattern, Iterator Pattern, Mediator Pattern, Observer Pattern, State Pattern, Strategy Pattern** and **Template Pattern**.
+
+
+
+**1. Chain of Responsibility Design Pattern**
+
+
+
+**2. Command Design Pattern**
+
+
+
+**3. Iterator Design Pattern**
+
+
+
+**4. Mediator Design Pattern**
+
+
+
+**5. Observer Design Pattern**
+
+
+
+**6. State Design Pattern**
+
+
+
+**7. Strategy Design Pattern**
+
+
+
+**8. Template Design Pattern**

@@ -43,8 +43,8 @@ class Database {
     }
   }
 
-let civic = new Car(4, "V6", "Black");
-let cx5   = new Car(6, "V8",  "Grey");
+let civic = new Car(4, "V6", "Black"); // Car {color: "Black", doors: 4, engine: "V6"}
+let cx5   = new Car(6, "V8",  "Grey"); // Car {color: "Black", doors: 4, engine: "V6"}
 
 console.log("civic:",civic);
 console.log("cx5:",cx5);
