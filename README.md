@@ -288,7 +288,8 @@ These patterns are concerned with class and object composition. They help struct
 We will discuss the following patterns in details — **Adapter Pattern, Composite Pattern, Decorator Pattern, Facade Pattern, Flyweight Pattern** and **Proxy Pattern**
 
 
-
+**1. Module Desing Pattern**
+The Module pattern was originally defined as a way to provide both private and public encapsulation for classes in conventional software engineering.
 
 **1. Adapter Design Pattern**
 
