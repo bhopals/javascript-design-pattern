@@ -1,10 +1,11 @@
 import express from 'express';
+import calc from './app';
 
 const app = express();
 const PORT = 3000;
-
+const aNumber = calc();
 app.get('/', (req, res) =>
-    res.send(`Node and express server is running on port ${PORT}`)
+    res.send(`Showing number ${aNumber} on port ${PORT}`)
 );
 
 app.listen(PORT, () =>

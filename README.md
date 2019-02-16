@@ -291,6 +291,23 @@ We will discuss the following patterns in details — **Adapter Pattern, Com
 **1. Module Desing Pattern**
 The Module pattern was originally defined as a way to provide both private and public encapsulation for classes in conventional software engineering.
 
+```
+    var myObjectLiteral = {
+    
+        variableKey: variableValue,
+    
+        functionKey: function () {
+        // ...
+        }
+    };
+
+```
+
+**2. Mixins Design Pattern**
+Mixins are a great way to mix functions and instances after they have been created. In other words,
+ you could use mixins to add interesting functions to the car class we created earlier.
+ 
+
 **1. Adapter Design Pattern**
 
 
