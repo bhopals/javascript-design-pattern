@@ -479,16 +479,37 @@ console.log(inferno.price); // 20
 This pattern has been widely used in many Javascript Frameworks such as Angular ( @Componenet Annotation) 
 
 
-**2. Composite Design Pattern**
+**6. Model-View-Controller (MVC) Pattern**
+MVC is an architectural design pattern that encourages improved application organization through a separation of concerns. It enforces the isolation of business data (Models) from user interfaces (Views), with a third component (Controllers) traditionally managing logic and user-input. 
+
+MODEL ---->    CONTROLLER
+ ^
+ |
+ |
+VIEW  ---->    CONTROLLER
 
 
-**4. Facade Design Pattern**
+** View has the access of both MODEL and CONTROLLER 
+example : Angular, React
+
+**7. Model-View-Presenter (MVP) Pattern**
+Model-view-presenter (MVP) is a derivative of the MVC design pattern which focuses on improving presentation logic. 
+
+MODEL <------> PRESENTER  <------>  VIEW
+
+** View does not have the direct access to the Model Object
+Example : Backbone, Android
 
 
-**5. Flyweight Design Pattern**
+**MVP or MVC?**
+MVP is generally used most often in enterprise-level applications where it's necessary to reuse as much presentation logic as possible. Applications with very complex views and a great deal of user interaction may find that MVC doesn't quite fit the bill here as solving this problem may mean heavily relying on multiple controllers. In MVP, all of this complex logic can be encapsulated in a presenter, which can simplify maintenance greatly.
+
+As MVP views are defined through an interface and the interface is technically the only point of contact between the system and the view (other than a presenter), this pattern also allows developers to write presentation logic without needing to wait for designers to produce layouts and graphics for the application.
 
 
-**6. Proxy Design Pattern**
+**8. Model-View-ViewModel (MVVM) Pattern**
+
+
 
 
 
