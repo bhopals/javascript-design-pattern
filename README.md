@@ -306,7 +306,45 @@ The Module pattern was originally defined as a way to provide both private and p
 **2. Mixins Design Pattern**
 Mixins are a great way to mix functions and instances after they have been created. In other words,
  you could use mixins to add interesting functions to the car class we created earlier.
- 
+
+ Mixins allow objects to borrow (or inherit) functionality from them with a minimal amount of complexity. As the pattern works well with JavaScripts object prototypes, it gives us a fairly flexible way to share functionality from not just one Mixin, but effectively many through multiple inheritance.
+
+ ```
+class Car {
+    constructor(doors, engine, color){
+        this.doors = doors;
+        this.engine = engine;
+        this.color = color;
+    }
+    print(){
+        console.log(`This car is of ${this.color} color and has ${this.doors} doors with ${this.engine}`)
+    }
+}
+
+
+let carMixins = {
+    revEngine() {
+        console.log(`The ${this.engine} is doing Vroom Vroom`);
+    }
+}
+const civic = new Car(4, "V6", "Black");
+console.log(civic);
+
+//The Object.assign() method is used to copy the values of all enumerable own properties from one or more 
+//source objects to a target object. It will return the target object
+Object.assign(Car.prototype, carMixins);
+
+console.log(civic.revEngine()); // The V6 is doing Vroom Vroom
+
+
+ ```
+
+
+**3. Facade Design Pattern**
+This is a structural design pattern that is widely used in the JavaScript libraries. It is used to provide a unified and simpler public facing interface for ease of use that shields away from the complexities of its consisting subsystems or subclasses.
+
+The use of this pattern is very common in libraries like jQuery.
+
 
 **1. Adapter Design Pattern**
 
