@@ -343,10 +343,46 @@ console.log(civic.revEngine()); // The V6 is doing Vroom Vroom
 **3. Facade Design Pattern**
 This is a structural design pattern that is widely used in the JavaScript libraries. It is used to provide a unified and simpler public facing interface for ease of use that shields away from the complexities of its consisting subsystems or subclasses.
 
-The use of this pattern is very common in libraries like jQuery.
+The use of this pattern is very common in libraries like jQuery. ($(document).ready(..))
+```
+var module = (function() {
+ 
+    var _private = {
+        i: 5,
+        get: function() {
+            console.log( "current value:" + this.i);
+        },
+        set: function( val ) {
+            this.i = val;
+        },
+        run: function() {
+            console.log( "running" );
+        },
+        jump: function(){
+            console.log( "jumping" );
+        }
+    };
+ 
+    return {
+ 
+        facade: function( args ) {
+            _private.set(args.val);
+            _private.get();
+            if ( args.run ) {
+                _private.run();
+            }
+        }
+    };
+}());
+ 
+ 
+// Outputs: "current value: 10" and "running"
+module.facade( {run: true, val: 10} );
+```
 
 
-**1. Adapter Design Pattern**
+
+**4. Flyweight Design Pattern**
 
 
 **2. Composite Design Pattern**
