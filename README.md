@@ -69,3 +69,53 @@ printCalc(calc);
 
 
 ### 1. Creational Design Patterns ###
+
+As the name suggests, these patterns are for handling object creational mechanisms. A Creational Pattern basically solves a problem by controlling the creation process of an object.
+
+We will discuss the following patterns in details — **Constructor Pattern, Factory Pattern, Prototype Pattern** and **Singleton Pattern**
+
+**1. Prototype/Class Design Pattern**
+This pattern is an object-based creational design pattern. In this, we use a sort of a “skeleton” of an existing object to create or instantiate new objects.
+
+In short, this pattern allows us to define a blueprint for a specific type of item and then reuse it.
+
+```
+class Car {
+    constructor(doors, engine, color){
+        this.doors = doors;
+        this.engine = engine;
+        this.color = color;
+    }
+    print(){
+        console.log(`This car is of ${this.color} color and has ${this.doors} doors with ${this.engine}`)
+    }
+}
+
+```
+By using above class we can create as many prototype as we want.
+
+```
+const civic = new Car(4,"V6","Grey");
+const lancer = new Car(6,"V2","Black");
+```
+
+Also, we can copy the proto to create another class by using Object.create method with additional properties.
+```
+const myCar = Object.create(car, { owner: { value: 'John' } });
+```
+
+
+### 2. Structural Design Patterns ###
+
+These patterns are concerned with class and object composition. They help structure or restructure one or more parts without affecting the entire system. In other words, they help obtain new functionalities without tampering with the existing ones.
+
+We will discuss the following patterns in details — **Adapter Pattern, Composite Pattern, Decorator Pattern, Facade Pattern, Flyweight Pattern** and **Proxy Pattern**
+
+
+
+
+### 3. Behavioral Design Patterns ###
+
+These patterns are concerned with improving communication between dissimilar objects.
+
+We will discuss the following patterns in details — **Chain of Responsibility Pattern, Command Pattern, Iterator Pattern, Mediator Pattern, Observer Pattern, State Pattern, Strategy Pattern** and **Template Pattern**.
