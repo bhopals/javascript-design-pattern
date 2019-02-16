@@ -152,8 +152,31 @@ This is a class-based creational design pattern. Constructors are special functi
 This pattern simply preventing our class from simply creating more than one instance of the blueprint we deinfed.
 In other words, the same way we used in above patterns, but only allowing a single instance of the class to be created.
 
+It works like this — if no instance of the singleton class exists then a new instance is created and returned but if an instance already exists then the reference to the existing instance is returned.
 
+```
+class Car {
 
+    constructor(doors, engine, color){
+        if(!Car.instance){
+            this.color = color;
+            this.doors = doors;
+            this.engine = engine;
+            Car.instance = this;
+        } else {
+            return Car.instance;
+        }
+    }
+  }
+
+let civic = new Car(4, "V6", "Black"); // Car {color: "Black", doors: 4, engine: "V6"}
+let cx5   = new Car(6, "V8",  "Grey"); // Car {color: "Black", doors: 4, engine: "V6"}
+
+console.log("civic:",civic);
+console.log("cx5:",cx5);
+```
+
+**3. Factory Design Pattern**
 
 ### 2. Structural Design Patterns ###
 
