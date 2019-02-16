@@ -592,16 +592,56 @@ console.log(obs1.state); // 2
 console.log(obs2.state); // 20
 ```
 
-
 Example  - MeteorJs
 
+Another example is JQUERY
+```
+// Equivalent to subscribe(topicName, callback)
+$( document ).on( "topicName", function () {
+    //..perform some behaviour
+});
+```
+
+
+
+
 **2. State Design Pattern**
+It is a behavioural design pattern that allows an object to alter its behaviour based on changes to its internal state. The object returned by a State pattern class seems to change its class. It provides state-specific logic to a limited set of objects in which each object type represents a particular state.
 
-
+Example : Angular, React, or any State Management Library 
 
 **3. Chain of Responsibility Design Pattern**
+This is a behavioural design pattern that provides a chain of loosely coupled objects. Each of these objects can choose to act on or handle the request of the client.
+
+A good example of the chain of responsibility pattern is the event bubbling in DOM in which an event propagates through a series of nested DOM elements, one of which may have an “event listener” attached to listen and act on the event.
+
+```
+class CumulativeSum {
+  constructor(intialValue = 0) {
+    this.sum = intialValue;
+  }
+
+  add(value) {
+    this.sum += value;
+    return this;
+  }
+}
+
+// usage
+const sum1 = new CumulativeSum();
+console.log(sum1.add(10).add(2).add(50).sum); // 62
 
 
+const sum2 = new CumulativeSum(10);
+console.log(sum2.add(10).add(20).add(5).sum); // 45
+```
+
+Another basic example is shopping website. Once user click on **Add to cart**, then **Checkout Page** followed by **Payment**, and then **Order Confirmation**.
+
+So here one action result in the input for next action which are tightly chained.
+
+
+This is a common pattern that can be seen in jQuery as well where almost any method call on a jQuery object returns a jQuery object so that method calls can be chained together.
 
 
 **4. Iterator Design Pattern**
