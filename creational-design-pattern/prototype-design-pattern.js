@@ -1,11 +1,9 @@
 class Car {
-    
     constructor(doors, engine, color){
         this.doors = doors;
         this.engine = engine;
         this.color = color;
     }
-
     print(){
         console.log(`This car is of ${this.color} color and has ${this.doors} doors with ${this.engine}`)
     }

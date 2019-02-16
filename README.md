@@ -101,8 +101,58 @@ const lancer = new Car(6,"V2","Black");
 
 Also, we can copy the proto to create another class by using Object.create method with additional properties.
 ```
-const myCar = Object.create(car, { owner: { value: 'John' } });
+const myCar = Object.create(Car, { owner: { value: 'John' } });
+console.log(myCar.__proto__ === Car); // true
 ```
+
+
+**2. Constructor Design Pattern**
+This is a class-based creational design pattern. Constructors are special functions that can be used to instantiate new objects with methods and properties defined by that function.
+
+```
+ class Hero {
+    constructor(name, specialAbility) {
+      // setting property values
+      this._name = name;
+      this._specialAbility = specialAbility;
+  
+      // declaring a method on the object
+      this.getDetails = function() {
+        return `${this._name} can ${this._specialAbility}`;
+      };
+    }
+  }
+
+  class SuperHero extends Hero {
+      constructor(name, specialAbility, rating){
+          super(name, specialAbility);
+          this.rating = rating;
+      }
+
+      // declaring a method on the object
+     getMoreDetails () {
+        return this.getDetails()+ ` and rating is ${this.rating}`;
+      };
+
+  }
+  
+  // creating new instances of Hero
+  const IronMan = new Hero('Iron Man', 'fly');
+  //console.log(IronMan.getDetails()); // Iron Man can fly
+
+
+   // creating new instances of SupeHero
+   const superHero = new SuperHero('Iron Man', 'fly', '9.0');
+   console.log(superHero.getMoreDetails()); // Iron Man can fly and rating is 9.0
+
+```
+
+
+**3. Singleton Design Pattern**
+This pattern simply preventing our class from simply creating more than one instance of the blueprint we deinfed.
+In other words, the same way we used in above patterns, but only allowing a single instance of the class to be created.
+
+
 
 
 ### 2. Structural Design Patterns ###
