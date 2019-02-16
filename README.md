@@ -508,12 +508,14 @@ As MVP views are defined through an interface and the interface is technically t
 
 
 **8. Model-View-ViewModel (MVVM) Pattern**
+MVVM (Model View ViewModel) is an architectural pattern based on MVC and MVP, which attempts to more clearly separate the development of user-interfaces (UI) from that of the business logic and behavior in an application
+
+Sometimes also referred as MVVC model (Model-View View Controller)
 
 
+MODEL <------> ViewModel (stateful component)  <------>  View (stateless visual)
 
-
-
-
+Example : React (Stateful and Stateless component), Angular
 
 ### 3. Behavioral Design Patterns ###
 
