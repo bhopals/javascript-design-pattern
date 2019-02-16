@@ -640,17 +640,120 @@ Another basic example is shopping website. Once user click on **Add to cart**, t
 
 So here one action result in the input for next action which are tightly chained.
 
-
 This is a common pattern that can be seen in jQuery as well where almost any method call on a jQuery object returns a jQuery object so that method calls can be chained together.
 
 
 **4. Iterator Design Pattern**
+The Iterator is a design pattern where iterators (objects that allow us to traverse through all the elements of a collection) access the elements of an aggregate object sequentially without needing to expose its underlying form.
 
+In the case of jQuery's jQuery.fn.each() iterator, we are actually able to use the underlying code behind jQuery.each() to iterate through a collection, without needing to see or understand the code working behind the scenes providing this capability.
 
+```
+$.each( ["john","dave","rick","julian"], function( index, value ) {
+  console.log( index + ": " + value);
+});
+ 
+$( "li" ).each( function ( index ) {
+  console.log( index + ": " + $( this ).text());
+});
+
+```
+
+If we see the underlying implementation of **Each** in JQuery
+
+```
+each: function( object, callback, args ) {
+  var name, i = 0,
+    length = object.length,
+    isObj = length === undefined || jQuery.isFunction( object );
+ 
+  if ( args ) {
+    if ( isObj ) {
+      for ( name in object ) {
+        if ( callback.apply( object[ name ], args ) === false ) {
+          break;
+        }
+      }
+    } else {
+      for ( ; i < length; ) {
+        if ( callback.apply( object[ i++ ], args ) === false ) {
+          break;
+        }
+      }
+    }
+ 
+  // A special, fast, case for the most common use of each
+  } else {
+    if ( isObj ) {
+      for ( name in object ) {
+        if ( callback.call( object[ name ], name, object[ name ] ) === false ) {
+          break;
+        }
+      }
+    } else {
+      for ( ; i < length; ) {
+        if ( callback.call( object[ i ], i, object[ i++ ] ) === false ) {
+          break;
+        }
+      }
+    }
+  }
+ 
+  return object;
+};
+```
 
 
 **5. Strategy Design Pattern**
+It is a behavioural design pattern that allows encapsulation of alternative algorithms for a particular task. It defines a family of algorithms and encapsulates them in such a way that they are interchangeable at runtime without client interference or knowledge.
 
+
+In the example below, we create a class Commute for encapsulating all the possible strategies for commuting to work. Then, we define three strategies namely Bus, PersonalCar and Taxi. Using this pattern we can swap the implementation to use for the travel method of the Commute object at runtime.
+
+```
+/ encapsulation
+class Commute {
+  travel(transport) {
+    return transport.travelTime();
+  }
+}
+
+class Vehicle {
+  travelTime() {
+    return this._timeTaken;
+  }
+}
+
+// strategy 1
+class Bus extends Vehicle {
+  constructor() {
+    super();
+    this._timeTaken = 10;
+  }
+}
+
+// strategy 2
+class Taxi extends Vehicle {
+  constructor() {
+    super();
+    this._timeTaken = 5;
+  }
+}
+
+// strategy 3
+class PersonalCar extends Vehicle {
+  constructor() {
+    super();
+    this._timeTaken = 3;
+  }
+}
+
+// usage
+const commute = new Commute();
+
+console.log(commute.travel(new Taxi())); // 5
+console.log(commute.travel(new Bus())); // 10
+```
 
 
 
