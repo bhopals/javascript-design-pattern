@@ -758,16 +758,99 @@ console.log(commute.travel(new Bus())); // 10
 
 
 **6. Memento Design Pattern**
+A temporary state of your data retaining the info while being converted from one format to another.
 
-
+Mostly while serialization or deserialization of the object.
+(Object to XML/JSOn  OR JSON/XML to Object )
 
 
 **7. Mediator Design Pattern**
+It is a behavioural design pattern that encapsulates how a set of object interact with each other. It provides the central authority over a group of objects by promoting loose coupling by keeping objects from referring to each other explicitly.
 
+This is also known as Publish/Subscribe or Event Aggregation
+
+```
+class TrafficTower {
+  constructor() {
+    this._airplanes = [];
+  }
+
+  register(airplane) {
+    this._airplanes.push(airplane);
+    airplane.register(this);
+  }
+
+  requestCoordinates(airplane) {
+    return this._airplanes.filter(plane => airplane !== plane).map(plane => plane.coordinates);
+  }
+}
+
+class Airplane {
+  constructor(coordinates) {
+    this.coordinates = coordinates;
+    this.trafficTower = null;
+  }
+
+  register(trafficTower) {
+    this.trafficTower = trafficTower;
+  }
+
+  requestCoordinates() {
+    if (this.trafficTower) return this.trafficTower.requestCoordinates(this);
+    return null;
+  }
+}
+
+// usage
+const tower = new TrafficTower();
+
+const airplanes = [new Airplane(10), new Airplane(20), new Airplane(30)];
+airplanes.forEach(airplane => {
+  tower.register(airplane);
+});
+
+console.log(airplanes.map(airplane => airplane.requestCoordinates())) 
+```
 
 
 **8. Command Design Pattern**
+This is a behavioural design pattern that aims to encapsulate actions or operations as objects. This pattern allows loose coupling of systems and classes by separating the objects that request an operation or invoke a method from the ones that execute or process the actual implementation.
 
+```
+class SpecialMath {
+  constructor(num) {
+    this._num = num;
+  }
 
+  square() {
+    return this._num ** 2;
+  }
 
-**9. Template Design Pattern**
+  cube() {
+    return this._num ** 3;
+  }
+
+  squareRoot() {
+    return Math.sqrt(this._num);
+  }
+}
+
+class Command {
+  constructor(subject) {
+    this._subject = subject;
+    this.commandsExecuted = [];
+  }
+  execute(command) {
+    this.commandsExecuted.push(command);
+    return this._subject[command]();
+  }
+}
+
+// usage
+const x = new Command(new SpecialMath(5));
+x.execute('square');
+x.execute('cube');
+
+console.log(x.commandsExecuted); // ['square', 'cube']
+```
+Example - Redux (Action and Reducer)
