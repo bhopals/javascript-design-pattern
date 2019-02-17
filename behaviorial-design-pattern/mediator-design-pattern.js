@@ -13,6 +13,7 @@ class TrafficTower {
     }
   }
   
+
   class Airplane {
     constructor(coordinates) {
       this.coordinates = coordinates;
@@ -28,6 +29,7 @@ class TrafficTower {
       return null;
     }
   }
+  
   
   // usage
   const tower = new TrafficTower();

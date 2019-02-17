@@ -835,6 +835,7 @@ class SpecialMath {
   }
 }
 
+
 class Command {
   constructor(subject) {
     this._subject = subject;

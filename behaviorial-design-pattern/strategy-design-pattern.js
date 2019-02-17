@@ -20,7 +20,9 @@ const cx5 = new Suv(4, "V8", "Black");
 console.log(civic);
 console.log(cx5);
 
+
 //OR
+
 
 class Commute {
   travel(transport) {
