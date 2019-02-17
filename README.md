@@ -785,6 +785,7 @@ class TrafficTower {
   }
 }
 
+
 class Airplane {
   constructor(coordinates) {
     this.coordinates = coordinates;

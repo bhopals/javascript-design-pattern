@@ -16,6 +16,7 @@ class SpecialMath {
     }
   }
   
+
   class Command {
     constructor(subject) {
       this._subject = subject;
@@ -31,5 +32,6 @@ class SpecialMath {
   const x = new Command(new SpecialMath(5));
   x.execute('square');
   x.execute('cube');
+  
   
   console.log(x.commandsExecuted); // ['square', 'cube']
