@@ -1,3 +1,4 @@
+
 class Subject {
     constructor() {
       this._observers = [];
@@ -24,6 +25,7 @@ class Subject {
       this.initialState = state;
     }
   
+    
     update(change) {
       let state = this.state;
       switch (change) {
