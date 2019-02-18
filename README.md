@@ -785,7 +785,6 @@ class TrafficTower {
   }
 }
 
-
 class Airplane {
   constructor(coordinates) {
     this.coordinates = coordinates;
@@ -835,7 +834,6 @@ class SpecialMath {
     return Math.sqrt(this._num);
   }
 }
-
 
 class Command {
   constructor(subject) {
